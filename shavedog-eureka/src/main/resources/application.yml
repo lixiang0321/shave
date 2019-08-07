@@ -1,0 +1,19 @@
+eureka:
+  instance:
+    hostname: eureka.com    #运行的主机名称
+    prefer-ip-address: true
+  client:    #进行Eureka客户端配置
+    register-with-eureka: false  #不向当前注册中心注册
+    fetch-registry: false   #不通过注册中心 抓取注册信息
+    service-url: # 定义所有的注册中心的地址
+      defaultZone: http://mingyuan:mingyuan@eureka.com:7001/eureka
+server:
+  port: 7001
+spring:
+  security: #进行SpringSecurity的配置
+    user:    #配置一个用户信息
+      name:  mingyuan   #定义用户名
+      password: mingyuan   #定义密码
+
+
+

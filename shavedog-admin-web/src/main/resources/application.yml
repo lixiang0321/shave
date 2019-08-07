@@ -1,0 +1,20 @@
+feign:
+  hystrix:
+    enabled: true
+  client:
+    default:
+      connectTimeout: 5000
+eureka:
+  client:
+    register-with-eureka: false   #客户端不需要向注册中心注册
+    service-url:
+      defaultZone:
+        http://mingyuan:mingyuan@eureka.com:7001/eureka
+server:
+  port: 8002
+logging:
+  level:
+    com.yootk.service: DEBUG
+spring:
+  main:
+    allow-bean-definition-overriding: true

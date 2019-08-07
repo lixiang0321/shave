@@ -1,0 +1,17 @@
+zuul:
+  prefix: /happy-proxy   #设置zuul的代理名称。有了一个访问前缀
+  ignored-services: "*"  #设置忽略所有根目录访问的环境
+  routes:
+    shavedog-provider-item: /admin-cloud/**  #设置一个路径来代表指定微服务名称
+eureka:
+  instance:
+    instance-id: shavedog-zuul
+    hostname: shavedog-zuul    #运行的主机名称
+  client:    #进行Eureka客户端配置
+    service-url: # 定义所有的注册中心的地址
+      defaultZone: http://mingyuan:mingyuan@eureka.com:7001/eureka
+spring:
+  application:
+    name: shavedog-zuul-gateway
+server:
+  port: 8501

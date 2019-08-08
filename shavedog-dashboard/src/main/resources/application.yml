@@ -1,7 +1,2 @@
-spring:
-  application:
-    name: shavedog-dashboar-dev #作为一个统一标记使用
 server:
   port: 8762
-
-

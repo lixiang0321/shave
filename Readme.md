@@ -4,8 +4,11 @@
 swagger2 接口注册/访问  地址本地注册
 http://shavedogadmin.com:8001/swagger-ui.html
 
+/
+    启动顺序Eureka→  Zuul网关 → dashboard 服务监控 → admin-Interface 后台接口 → admin-Web 后台控制  
+/
 
-shavedog-admin-interface    后台接口/数据层  
+shavedog-admin-interface    后台接口/数据层    熔断服务监控localhost:8001/actuator/hystrix.stream
 shavedog-admin-web          后台控制层/WEB
 shavedog-api                公共方法/类/定义
 shavedog-dashboard          熔断监控           访问地址shavedog-dashboard.com:8762/hystrix        地址本地注册

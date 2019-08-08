@@ -14,6 +14,10 @@ import org.springframework.transaction.interceptor.NameMatchTransactionAttribute
 import org.springframework.transaction.interceptor.RuleBasedTransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
+
+/**
+ * 事物控制
+ */
 @Configuration						// 定义配置Bean
 @Aspect								// 采用AOP切面处理
 public class TransactionConfig {

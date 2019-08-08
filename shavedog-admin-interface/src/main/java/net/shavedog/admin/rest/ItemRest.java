@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- *  @HystrixCommand //服务监控  启动服务监控
+ *  @HystrixCommand //服务监控  启动服务监控  如果需要在@GetMapping  上面
+ * 加入注解进行监控
  */
 @RestController
 public class ItemRest {
@@ -31,12 +33,12 @@ public class ItemRest {
     @ApiImplicitParams({@ApiImplicitParam(name = "dto", value = "测试数据", required = true,dataTypeClass = String.class)})
     @GetMapping("/admin/test")
     public String test(String abc){
-        return abc;
+        return this.itemService.test(abc);
     }
 
-    @GetMapping("/admin/list")
-    public List<ItemVo> list(){
+    @HystrixCommand
+    @GetMapping("/api/admin/items")
+    public Map<String,Object> list(){
         return this.itemService.list();
     }
-
 }

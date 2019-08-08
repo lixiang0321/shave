@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * Feign接口自带了负载均衡的技术
+ */
 
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 //@RibbonClient(name = "clientRibbon",configuration = ClientRibbonConfiguration.class)

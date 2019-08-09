@@ -23,7 +23,6 @@ public class TestItem {
     public void testSave(){
         ItemVo itemVo = new ItemVo();
         itemVo.setName("abcdsad");
-
         this.itemService.createItem(itemVo);
     }
 }

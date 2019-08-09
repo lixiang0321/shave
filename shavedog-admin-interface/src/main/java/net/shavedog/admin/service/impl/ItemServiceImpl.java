@@ -33,6 +33,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Map<String,Object> list() {
         Map<String,Object> map = new HashMap<>();
+        ItemVo  itemVo = new ItemVo();
         List<ItemVo> list =new ArrayList<>();
         List<ItemEntity> all = this.itemDao.findAll();
         Long count = this.itemDao.count();

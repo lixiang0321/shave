@@ -13,7 +13,7 @@ shavedog-admin-web          后台控制层/WEB
 shavedog-api                公共方法/类/定义
 shavedog-dashboard          熔断监控           访问地址shavedog-dashboard.com:8762/hystrix        地址本地注册
 shavedog-eureka             注册中心           访问地址eureka.com:8761      账号密码mingyuan   地址本地注册HOSTS
-shavedog-font-interface     前台接口/数据层
-shavedog-font-web           前台控制层/web
+shavedog-front-interface     前台接口/数据层
+shavedog-front-web           前台控制层/web
 shavedog-listener           rabbitmq监听类。
-shavedog-zool               网关
+shavedog-zuul               网关

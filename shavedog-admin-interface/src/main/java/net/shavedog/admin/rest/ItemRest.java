@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import net.shavedog.api.service.ItemService;
+import net.shavedog.api.util.PageUtils;
 import net.shavedog.api.vo.ItemVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,6 @@ import java.util.Map;
 public class ItemRest {
     @Autowired
     private ItemService itemService ;
-
     @ApiOperation(value = "商品增加",notes = "一系列商品信息数据")
     @ApiImplicitParams({@ApiImplicitParam(name = "dto", value = "新部门数据的实体", required = true,dataTypeClass = ItemVo.class)})
     @HystrixCommand
@@ -36,9 +36,14 @@ public class ItemRest {
         return this.itemService.test(abc);
     }
 
-    @HystrixCommand
-    @GetMapping("/api/admin/items")
-    public Map<String,Object> list(){
-        return this.itemService.list();
+//    @HystrixCommand
+    @GetMapping("/api/admin/items/list")
+    public Map<String,Object> list(@RequestParam int page,@RequestParam int size){
+        return this.itemService.list(page,size);
     }
+    @PutMapping("/api/admin/items/status/{id}")
+    public Object uploadStatus(@PathVariable("id") Long id,@RequestParam(value = "status") String status){//,@RequestParam(value = "status") String status
+        return this.itemService.uploadStatus(id,status);
+    }
+
 }

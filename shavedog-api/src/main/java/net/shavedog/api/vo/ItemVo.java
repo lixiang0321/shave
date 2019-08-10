@@ -16,7 +16,7 @@ public class ItemVo implements Serializable {
     private int price;
     private long propertyId;
     private String propertyValueIdsJson;
-    private int status;
+    private String status;
     private String subTitle;
     private Date updateAt;
 
@@ -137,11 +137,11 @@ public class ItemVo implements Serializable {
         this.propertyValueIdsJson = propertyValueIdsJson;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

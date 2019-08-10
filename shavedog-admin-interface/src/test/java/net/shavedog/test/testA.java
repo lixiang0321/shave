@@ -2,8 +2,8 @@ package net.shavedog.test;
 
 import net.shavedog.admin.StartAdminInterface8001;
 import net.shavedog.admin.dao.ItemDao;
-import net.shavedog.admin.po.ItemEntity;
 import net.shavedog.api.service.ItemService;
+import net.shavedog.api.util.PageUtils;
 import net.shavedog.api.vo.ItemVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +25,11 @@ public class testA {
     private ItemDao itemDao;
     @Test
     public void testList(){
-        System.out.println(this.itemService.list());
+        PageUtils pageUtils = new PageUtils();
+        pageUtils.setPage(0);
+        pageUtils.setSize(1);
+//        System.out.println(this.itemService.uploadStatus(1L,"OBTAINED"));
+        System.out.println(this.itemService.list(0,1));
     }
+
 }

@@ -1,4 +1,4 @@
-package net.shavedog.api.po;
+package net.shavedog.admin.po;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "property", schema = "shavedog", catalog = "")
 public class PropertyEntity implements Serializable {
-    private long id;
+    private Long id;
     private Timestamp createAt;
     private boolean isDelete;
     private String name;
@@ -16,11 +16,11 @@ public class PropertyEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

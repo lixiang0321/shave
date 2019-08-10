@@ -20,7 +20,7 @@ public class ItemEntity implements Serializable {
     private int price;
     private long propertyId;
     private String propertyValueIdsJson;
-    private int status;
+    private String status;
     private String subTitle;
     private Timestamp updateAt;
 
@@ -146,11 +146,11 @@ public class ItemEntity implements Serializable {
 
     @Basic
     @Column(name = "status")
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

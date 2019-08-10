@@ -1,7 +1,9 @@
 package test;
 
 import net.shavedog.admin.StartAdminService8002;
+import net.shavedog.admin.action.ItemAction;
 import net.shavedog.api.service.ItemService;
+import net.shavedog.api.util.PageUtils;
 import net.shavedog.api.vo.ItemVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,11 +20,12 @@ public class TestItem {
     @Autowired
     private ItemService itemService;
     @Autowired
-    private RestTemplate restTemplate;
+    private ItemAction itemAction;
     @Test
     public void testSave(){
-        ItemVo itemVo = new ItemVo();
-        itemVo.setName("abcdsad");
-        this.itemService.createItem(itemVo);
+        PageUtils pageUtils = new PageUtils();
+        pageUtils.setPage(0);
+        pageUtils.setSize(1);
+        this.itemAction.showTest(0,1);
     }
 }

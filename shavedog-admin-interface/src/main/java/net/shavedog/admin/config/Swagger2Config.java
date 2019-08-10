@@ -19,7 +19,6 @@ public class Swagger2Config {
                 .apiInfo(this.getApiInfo()).select().apis(RequestHandlerSelectors.basePackage("net.shavedog.admin.rest"))
                 .paths(PathSelectors.any()).build();
     }
-
     /*
         http://shavedogadmin.com:8001/swagger-ui.html   HOST本地注册
     */

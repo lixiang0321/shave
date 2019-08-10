@@ -1,9 +1,9 @@
-feign:
-  hystrix:
-    enabled: true
-  client:
-    default:
-      connectTimeout: 5000    #开启服务降级版本回退
+#feign:
+#  hystrix:
+#    enabled: true
+#  client:
+#    default:
+#      connectTimeout: 5000    #开启服务降级版本回退
 eureka:
   client:
     register-with-eureka: false   #客户端不需要向注册中心注册

@@ -1,17 +1,13 @@
 package net.shavedog.admin.action;
 
 import net.shavedog.api.service.ItemService;
+import net.shavedog.api.util.PageUtils;
 import net.shavedog.api.vo.ItemVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,26 +17,17 @@ import java.util.Map;
 public class ItemAction {
     @Autowired
     private ItemService itemService;
-    @Autowired
-    private RestTemplate restTemplate;
-
     @GetMapping("/boot/admin/add")
     public boolean add(@RequestBody ItemVo itemVo){
         System.out.println(itemVo);
         System.out.println(this.itemService.createItem(itemVo));
         return this.itemService.createItem(itemVo);
     }
-    @GetMapping("/boot/admin/test")
-    public String showTest(String str){
-        return this.itemService.test(str);
-    }
-    @ResponseBody
-    @GetMapping("/api/admin/items")
-    public Object showTest(){
+    @GetMapping("/api/admin/items/list")
+    public Object showTest(int page,int size){
         Map<String,Object> map = new HashMap<>();
-        Map<String, Object> list = this.itemService.list();
+        Map<String, Object> list = this.itemService.list(page,size);
         try {
-            System.out.println("+++++++++++++++++++++++++++++++++++++");
             map.put("code",200);
             map.put("msg","success");
             map.put("data",list);
@@ -50,5 +37,10 @@ public class ItemAction {
             map.put("msg","error");
         }
         return map;
+    }
+    @PutMapping("/api/admin/items/status")
+    public void upStatus(Long id,String status){
+        System.out.println(id+"：：：：：：：：："+status);
+        this.itemService.uploadStatus(id,status);
     }
 }
